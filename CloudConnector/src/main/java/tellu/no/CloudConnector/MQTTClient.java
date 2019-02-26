@@ -46,6 +46,8 @@ public class MQTTClient implements IMqttMessageListener, IMqttActionListener, Mq
         opts.setCleanSession(true);
         opts.setAutomaticReconnect(true);
         opts.setConnectionTimeout(30);
+        opts.setKeepAliveInterval(300);
+
     	
 	}
 	
@@ -65,13 +67,15 @@ public class MQTTClient implements IMqttMessageListener, IMqttActionListener, Mq
 		
 		try 
 		{
-			if(client != null && client.isConnected())
-			{
-				client.close();
-			}
+			
+			/*
+			 * if(client != null && client.isConnected()) { client.disconnectForcibly();
+			 * client.close(); }
+			 */
+			 
 				
 			
-			client = new MqttAsyncClient(mqttAdd, "testclient_Productive40" + System.currentTimeMillis());
+			client = new MqttAsyncClient(mqttAdd, "testclient_Productive40");
 			client.setCallback(this);
 	    	IMqttToken token = client.connect(opts);
 	    	token.waitForCompletion();
@@ -267,10 +271,10 @@ public class MQTTClient implements IMqttMessageListener, IMqttActionListener, Mq
 	public void connectionLost(Throwable arg0) {
 		
 		System.out.println("connectionLost:" + arg0.getMessage());
-		System.out.println("Trying to reconnect");
-		
+		//System.out.println("Trying to reconnect");
 	
-		connect(brokerURL, opts, topic);
+	
+		//connect(brokerURL, opts, topic);
 		
 		
 	}

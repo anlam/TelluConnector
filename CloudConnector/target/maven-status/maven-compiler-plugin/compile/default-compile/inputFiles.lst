@@ -1,2 +1,11 @@
-D:\Arrowhead\AH41Workspace\CloudConnector\src\main\java\tellu\no\CloudConnector\App.java
-D:\Arrowhead\AH41Workspace\CloudConnector\src\main\java\tellu\no\CloudConnector\ConsumerMain.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\model\RuuviMeasurement.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\CloudConnector\ConsumerMain.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\model\ApisItem.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\model\GPSStatus.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\model\GatewayHearbeatACK.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\model\GPSPosition.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\model\GatewayHeartbeat.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\model\GPSAltitude.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\CloudConnector\MQTTClient.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\model\ApisItemValue.java
+C:\Users\An\Documents\GitHub\TelluConnector\CloudConnector\src\main\java\tellu\no\CloudConnector\App.java
