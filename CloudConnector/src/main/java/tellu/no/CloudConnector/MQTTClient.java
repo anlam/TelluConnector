@@ -271,6 +271,12 @@ public class MQTTClient implements IMqttMessageListener, IMqttActionListener, Mq
 	public void connectionLost(Throwable arg0) {
 		
 		System.out.println("connectionLost:" + arg0.getMessage());
+		try {
+			client.reconnect();
+		} catch (MqttException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//System.out.println("Trying to reconnect");
 	
 	
