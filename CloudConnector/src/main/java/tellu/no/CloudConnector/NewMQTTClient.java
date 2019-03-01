@@ -237,7 +237,7 @@ public class NewMQTTClient implements MqttCallback, IMqttActionListener {
 		if (sub_topic.equals("ruuvi_measurement")) {
 			RuuviMeasurement pl = gson.fromJson(payload, RuuviMeasurement.class);
 
-			Date timestamp = new Date(pl.getTimestamp());
+			Date timestamp = new Date(pl.getTimestamp()*1000);
 			String dv = String.valueOf(pl.getDeviceID());
 
 			it = new ApisItem(String.join(".", item_prefix, dv, "humidity"), String.valueOf(pl.getHumidity()),
@@ -275,7 +275,7 @@ public class NewMQTTClient implements MqttCallback, IMqttActionListener {
 		} else if (sub_topic.equals("gateway_heartbeat")) {
 			GatewayHeartbeat pl = gson.fromJson(payload, GatewayHeartbeat.class);
 
-			Date timestamp = new Date(pl.getTimestamp());
+			Date timestamp = new Date(pl.getTimestamp()*1000);
 
 			it = new ApisItem(String.join(".", item_prefix, "seq"), String.valueOf(pl.getSeq()), (short) 192,
 					timestamp);
@@ -284,7 +284,7 @@ public class NewMQTTClient implements MqttCallback, IMqttActionListener {
 		} else if (sub_topic.equals("gateway_heartbeat_ack")) {
 			GatewayHearbeatACK pl = gson.fromJson(payload, GatewayHearbeatACK.class);
 
-			Date timestamp = new Date(pl.getTimestamp());
+			Date timestamp = new Date(pl.getTimestamp()*1000);
 
 			it = new ApisItem(String.join(".", item_prefix, "incseq"), String.valueOf(pl.getIncseq()), (short) 192,
 					timestamp);
@@ -292,7 +292,7 @@ public class NewMQTTClient implements MqttCallback, IMqttActionListener {
 		} else if (sub_topic.equals("gps_status")) {
 			GPSStatus pl = gson.fromJson(payload, GPSStatus.class);
 
-			Date timestamp = new Date(pl.getTimestamp());
+			Date timestamp = new Date(pl.getTimestamp()*1000);
 
 			it = new ApisItem(String.join(".", item_prefix, "status"), String.valueOf(pl.getStatus()), (short) 192,
 					timestamp);
@@ -308,7 +308,7 @@ public class NewMQTTClient implements MqttCallback, IMqttActionListener {
 		} else if (sub_topic.equals("gps_position")) {
 			GPSPosition pl = gson.fromJson(payload, GPSPosition.class);
 
-			Date timestamp = new Date(pl.getTimestamp());
+			Date timestamp = new Date(pl.getTimestamp()*1000);
 
 			it = new ApisItem(String.join(".", item_prefix, "gpstime"), String.valueOf(pl.getGpstime()), (short) 192,
 					timestamp);
@@ -348,7 +348,7 @@ public class NewMQTTClient implements MqttCallback, IMqttActionListener {
 		} else if (sub_topic.equals("gps_altitude")) {
 			GPSAltitude pl = gson.fromJson(payload, GPSAltitude.class);
 
-			Date timestamp = new Date(pl.getTimestamp());
+			Date timestamp = new Date(pl.getTimestamp()*1000);
 
 			it = new ApisItem(String.join(".", item_prefix, "altitude"), String.valueOf(pl.getAltitude()), (short) 192,
 					timestamp);
