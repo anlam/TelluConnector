@@ -143,8 +143,11 @@ public class ConsumerMain {
 	 String mqttUser = props.getProperty("mqtt_user");
 	 String mqttPass = props.getProperty("mqtt_pass");
 	 String mqttTopic =  props.getProperty("mqtt_topic");
-	 MQTTClient mqtt_cl = new MQTTClient(mqttAdd, mqttUser, mqttPass);
-	 mqtt_cl.consumeAPISService(providerUrl, mqttTopic);
+	 //MQTTClient mqtt_cl = new MQTTClient(mqttAdd, mqttUser, mqttPass);
+	 //mqtt_cl.consumeAPISService(providerUrl, mqttTopic);
+	 
+	 NewMQTTClient mqtt_cl = new NewMQTTClient();
+	 mqtt_cl.consumeAPISService(providerUrl);
 	 
     
   }
