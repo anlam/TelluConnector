@@ -89,9 +89,12 @@ public class NewMQTTClient implements MqttCallback, IMqttActionListener {
 		token.waitForCompletion();
 
 		// Subscribe to all the gateways
-		for (int i = 0; i < 6; i++) {
-			client.subscribe("tellu/P4GW100" + i + "/#", 0);
-		}
+		//for (int i = 0; i < 6; i++) {
+		//	client.subscribe("tellu/P4GW100" + i + "/#", 0);
+		//}
+		
+		client.subscribe("tellu/P4GW1004" +  "/#", 0);
+		client.subscribe("tellu/P4GW1003"  + "/#", 0);
 
 	}
 
@@ -113,10 +116,29 @@ public class NewMQTTClient implements MqttCallback, IMqttActionListener {
 		}
 		System.exit(0);
 	}
+	
+	
+	protected void cleanupAndReconnect() {
+		try {
+			client.disconnect();
+		} catch (MqttException ex) {
+			Logger.getLogger(NewMQTTClient.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		
+		try {
+			initialize();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit(0);
+			
+		}
+		
+	}
 
 	@Override
 	public void connectionLost(Throwable arg0) {
-		cleanupAndDie();
+		cleanupAndReconnect();
 	}
 
 	@Override
