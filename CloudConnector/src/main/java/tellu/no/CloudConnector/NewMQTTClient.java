@@ -126,10 +126,11 @@ public class NewMQTTClient implements MqttCallback, IMqttActionListener {
 		}
 		
 		try {
-			initialize();
+			NewMQTTClient mqtt_cl = new NewMQTTClient();
+			mqtt_cl.consumeAPISService(apisURL);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 			System.exit(0);
 			
 		}
